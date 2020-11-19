@@ -21,6 +21,7 @@ jobs:
     env:
       VAULT_PASS: ${{ secrets.VAULT_PASS }}
     steps:
+      - run: pwd
       - run: ls test/dir
       - run: cat test/dir/somefile
       - name: Create .vault_pass.txt
