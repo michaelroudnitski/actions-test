@@ -21,15 +21,7 @@ jobs:
     env:
       VAULT_PASS: ${{ secrets.VAULT_PASS }}
     steps:
-      - run: pwd && ls
-      - run: find . -name somefile
-#       - run: cat test/dir/somefile
-#       - name: Create .vault_pass.txt
-#         run: 'echo "$VAULT_PASS" > .vault_pass.txt'
-#       - run: ls
-#       - run: exit 1
-#       - run: echo "this should not run"
-#       - name: Remove vault pass no matter what
-#         if: always()
-#         run: rm .vault_pass.txt
-#       - run: ls
+      - name: Checkout
+        uses: actions/chekout@2.3.4
+      - run: 'echo "$VAULT_PASS" > .vault_pass.txt'
+      - run: ls
