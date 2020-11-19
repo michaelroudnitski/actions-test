@@ -22,6 +22,11 @@ jobs:
       VAULT_PASS: ${{ secrets.VAULT_PASS }}
     steps:
       - name: Create .vault_pass.txt
-        run: echo "$VAULT_PASS" > .vault_pass.txt
-      - name: Print contents of .vault_pass.txt
-        run: cat .vault_pass.txt
+        run: 'echo "$VAULT_PASS" > .vault_pass.txt'
+      - run: ls
+      - run: exit 1
+      - run: echo "this should not run"
+      - name: Remove vault pass no matter what
+        if: always()
+        run: rm .vault_pass.txt
+      - run: ls
