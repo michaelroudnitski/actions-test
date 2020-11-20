@@ -23,4 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: 'echo "$VAULT_PASS" > .vault_pass.txt'
+        shell: bash
       - run: ls
+      - run: cat .vault_pass.txt
