@@ -19,4 +19,4 @@ jobs:
   create_vault_pass:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::set-output name=tag::github.event.inputs.tag"
+      - run: echo "Building edxapp:${{ github.event.inputs.name }} from branch _placeholder_"
