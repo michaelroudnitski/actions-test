@@ -20,8 +20,8 @@ jobs:
   create_vault_pass:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Building edxapp:${{ github.event.inputs.tag }} from branch ${{ github.event.inputs.ref }}"
-        name: "edxapp:${{ github.event.inputs.tag }}"
+      - run: echo "do something..."
+        name: "Build edxapp:${{ github.event.inputs.tag }}"
       - run: echo "Using branch ${{ github.event.inputs.ref }}"
         name: "Using branch ${{ github.event.inputs.ref }}"
-        if: ${{ github.event.inputs.ref }} != ''
+        if: ${{ github.event.inputs.ref != ''}}
