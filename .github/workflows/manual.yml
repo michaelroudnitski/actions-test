@@ -23,5 +23,5 @@ jobs:
       - run: echo "do something..."
         name: "Build edxapp:${{ github.event.inputs.tag }}"
       - run: echo "Using branch ${{ github.event.inputs.ref }}"
-        name: "Using branch ${{ github.event.inputs.ref }}"
+        name: "Using ref: ${{ github.event.inputs.ref == '' ? 'upstream' : github.event.inputs.ref }}"
         if: ${{ github.event.inputs.ref != ''}}
