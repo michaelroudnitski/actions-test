@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Build and push edxapp image
+name: "Build and push edxapp:${{ github.event.inputs.tag }}"
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
