@@ -18,11 +18,5 @@ on:
 jobs:
   create_vault_pass:
     runs-on: ubuntu-latest
-    env:
-      VAULT_PASS: ${{ secrets.VAULT_PASS }}
     steps:
-      - uses: actions/checkout@v2
-      - run: 'echo "$VAULT_PASS" > .vault_pass.txt'
-        shell: bash
-      - run: ls
-      - run: cat .vault_pass.txt
+      - run: 'echo "::set-output name=tag::github.event.inputs.tag"'
