@@ -8,16 +8,20 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'tag'
-        # Input has to be provided for the workflow to run
+      tag:
+        description: 'Image Tag'
         required: true
+      ref:
+        description: 'Branch/Tag/SHA to checkout'
+        default: ''
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   create_vault_pass:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Building edxapp:${{ github.event.inputs.name }} from branch _placeholder_"
-        name: Build Information
+      - run: echo "Building edxapp:${{ github.event.inputs.tag }} from branch ${{ github.event.inputs.ref }}"
+        name: "edxapp:${{ github.event.inputs.tag }}"
+      - run: echo "Using branch ${{ github.event.inputs.ref }}"
+        name: "Using branch ${{ github.event.inputs.ref }}"
+        if: ${{ github.event.inputs.ref }} != ''
