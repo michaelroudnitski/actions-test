@@ -20,3 +20,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Building edxapp:${{ github.event.inputs.name }} from branch _placeholder_"
+        name: Build Information
